@@ -9,10 +9,13 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    var isLoading = false
+    
     struct TableView {
         struct CellIdentifiers {
             static let searchResultCell = "SearchResultCell"
             static let nothingFoundCell = "NothingFoundCell"
+            static let loadingCell      = "LoadingCell"
         }
     }
     // MARK: - Outlets
@@ -29,9 +32,11 @@ class SearchViewController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
         
         var cellNib = UINib(nibName: TableView.CellIdentifiers.searchResultCell, bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.searchResultCell)
         cellNib = UINib(nibName: TableView.CellIdentifiers.nothingFoundCell, bundle: nil)
+        cellNib = UINib(nibName: TableView.CellIdentifiers.loadingCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.searchResultCell)
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.nothingFoundCell)
+        tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.loadingCell)
     }
     
     // MARK: - Helper Methods
@@ -80,16 +85,26 @@ extension SearchViewController: UISearchBarDelegate {
         if !searchBar.text!.isEmpty {
             // There is text
             searchBar.resignFirstResponder()
+            isLoading = true
+            tableView.reloadData()
             hasSearched = true
             searchResults = []
-            
-            let url = iTunesURL(searchText: searchBar.text!)
-            print("URL: '\(url)'")
-            
-            if let data = perfromStoreRequest(with: url) {
-                searchResults = parse(data: data)
+            // Get the reference to the queue, using a GLOBAL queue.
+            let queue = DispatchQueue.global()
+            let url = self.iTunesURL(searchText: searchBar.text!)
+            // Once we have the queue, dispatch a closure on it. This frees up the main thread.
+            queue.async {
+                
+                if let data = self.perfromStoreRequest(with: url) {
+                    self.searchResults = self.parse(data: data)
+                    self.searchResults.sort(by: <)
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                        self.tableView.reloadData()
+                    }
+                    return
+                }
             }
-            tableView.reloadData()
         }
     }
     
@@ -102,7 +117,9 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !hasSearched {
+        if isLoading {
+            return 1
+        } else if !hasSearched {
             return 0
         } else if searchResults.count == 0 {
             return 1
@@ -113,7 +130,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if searchResults.count == 0 {
+        if isLoading {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.loadingCell, for: indexPath)
+            let spinner = cell.viewWithTag(100) as! UIActivityIndicatorView
+            spinner.startAnimating()
+            return cell
+        } else if searchResults.count == 0 {
             return tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.nothingFoundCell, for: indexPath)
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.searchResultCell, for: indexPath) as! SearchResultCell
@@ -134,7 +156,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if searchResults.count == 0 {
+        
+        if searchResults.count == 0 || isLoading {
             return nil
         } else {
             return indexPath
