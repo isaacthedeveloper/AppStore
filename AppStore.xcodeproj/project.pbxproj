@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		4502AE9C2357CF7700434BE0 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4502AE9B2357CF7700434BE0 /* UIImageView+DownloadImage.swift */; };
+		450AEDB02357D6AD005FF1EF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450AEDAF2357D6AD005FF1EF /* DetailViewController.swift */; };
+		450AEDB22357DA3F005FF1EF /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450AEDB12357DA3F005FF1EF /* DimmingPresentationController.swift */; };
 		457649F02354F8F50020C3E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457649EF2354F8F50020C3E4 /* AppDelegate.swift */; };
 		457649F22354F8F50020C3E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457649F12354F8F50020C3E4 /* SceneDelegate.swift */; };
 		457649F42354F8F50020C3E4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457649F32354F8F50020C3E4 /* SearchViewController.swift */; };
 		457649F72354F8F50020C3E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 457649F52354F8F50020C3E4 /* Main.storyboard */; };
 		457649F92354F8F60020C3E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 457649F82354F8F60020C3E4 /* Assets.xcassets */; };
 		457649FC2354F8F60020C3E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 457649FA2354F8F60020C3E4 /* LaunchScreen.storyboard */; };
+		45C507602358E0B400927B3B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C5075F2358E0B400927B3B /* GradientView.swift */; };
+		45C507622358E3E000927B3B /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C507612358E3E000927B3B /* BounceAnimationController.swift */; };
+		45C507642358E7A800927B3B /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C507632358E7A800927B3B /* SlideOutAnimationController.swift */; };
 		45D717F12355240E00CDAA95 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D717F02355240E00CDAA95 /* SearchResult.swift */; };
 		45D717F32355361100CDAA95 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D717F22355361100CDAA95 /* SearchResultCell.xib */; };
 		45D717F523553D2000CDAA95 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D717F423553D2000CDAA95 /* SearchResultCell.swift */; };
@@ -23,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		4502AE9B2357CF7700434BE0 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		450AEDAF2357D6AD005FF1EF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		450AEDB12357DA3F005FF1EF /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		457649EC2354F8F50020C3E4 /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		457649EF2354F8F50020C3E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		457649F12354F8F50020C3E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +38,9 @@
 		457649F82354F8F60020C3E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		457649FB2354F8F60020C3E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		457649FD2354F8F60020C3E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45C5075F2358E0B400927B3B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		45C507612358E3E000927B3B /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
+		45C507632358E7A800927B3B /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		45D717F02355240E00CDAA95 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		45D717F22355361100CDAA95 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		45D717F423553D2000CDAA95 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -53,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				4502AE9B2357CF7700434BE0 /* UIImageView+DownloadImage.swift */,
+				450AEDAF2357D6AD005FF1EF /* DetailViewController.swift */,
+				450AEDB12357DA3F005FF1EF /* DimmingPresentationController.swift */,
 				457649F52354F8F50020C3E4 /* Main.storyboard */,
 				457649FA2354F8F60020C3E4 /* LaunchScreen.storyboard */,
 				45EA2E092356D44A00411F13 /* LoadingCell.xib */,
@@ -65,6 +77,9 @@
 		457649E32354F8F50020C3E4 = {
 			isa = PBXGroup;
 			children = (
+				45C5075F2358E0B400927B3B /* GradientView.swift */,
+				45C507612358E3E000927B3B /* BounceAnimationController.swift */,
+				45C507632358E7A800927B3B /* SlideOutAnimationController.swift */,
 				457649EE2354F8F50020C3E4 /* AppStore */,
 				457649ED2354F8F50020C3E4 /* Products */,
 			);
@@ -170,9 +185,14 @@
 				457649F42354F8F50020C3E4 /* SearchViewController.swift in Sources */,
 				457649F02354F8F50020C3E4 /* AppDelegate.swift in Sources */,
 				4502AE9C2357CF7700434BE0 /* UIImageView+DownloadImage.swift in Sources */,
+				450AEDB22357DA3F005FF1EF /* DimmingPresentationController.swift in Sources */,
+				45C507622358E3E000927B3B /* BounceAnimationController.swift in Sources */,
 				45D717F12355240E00CDAA95 /* SearchResult.swift in Sources */,
 				457649F22354F8F50020C3E4 /* SceneDelegate.swift in Sources */,
 				45D717F523553D2000CDAA95 /* SearchResultCell.swift in Sources */,
+				45C507642358E7A800927B3B /* SlideOutAnimationController.swift in Sources */,
+				450AEDB02357D6AD005FF1EF /* DetailViewController.swift in Sources */,
+				45C507602358E0B400927B3B /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
